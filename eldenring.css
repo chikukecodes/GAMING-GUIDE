@@ -75,3 +75,9 @@ footer {
   left: 0;
   width: 100%;
 }
+.name {
+  color: #c9a227;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 500px;
+}
