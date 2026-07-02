@@ -16,7 +16,7 @@ h1 {
   margin: 0 auto;
   text-align: center;
   color: #da9d2c;
-  margin-top: 700px;
+  margin-top: 730px;
   
 }
 
@@ -78,12 +78,7 @@ footer {
   object-fit: fill;
   z-index: -1;
 }
-.overlay {
-  position: relative;
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0);
-  padding: 20px;
-}
+
 .screenshots {
   display: flex;
   gap: 15px;
@@ -93,7 +88,7 @@ footer {
   padding: 20px;
 }
 .synopsis {
-  background: #111;
+  background: #1a1a1a;
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
