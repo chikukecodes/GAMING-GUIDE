@@ -16,7 +16,7 @@ h1 {
   margin: 0 auto;
   text-align: center;
   color: #da9d2c;
-  margin-top: 730px;
+  margin-top: 50px;
   
 }
 
@@ -101,3 +101,17 @@ text-align: center;
   cursor: url('https://cdn.cursors-4u.net/css-previews/resident-evil-umbrella-21f709c5-css.webp') 0 0, auto !important;
 }
 /* End www.Cursors-4U.com Code */
+.purchase-note {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+img.steam-icon {
+  width: 200px;
+  height: 100px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-top: 20px; }
+  .game-title {
+  text-align: center;
+  margin-top: 750px;}
