@@ -95,3 +95,15 @@ footer {
   cursor: url('https://cdn.cursors-4u.net/previews/dragon-battleaxe-runescape-78940e73-32.webp') 32 32, auto !important;
 }
 /* End www.Cursors-4U.com Code */
+.purchase-note {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+img.steam-icon {
+  width: 200px;
+  height: 100px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-top: 20px;
+}
