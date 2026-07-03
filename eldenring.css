@@ -100,3 +100,8 @@ footer {
   margin-top: 30px;
   border-radius: 8px;
 }
+/* World Of Warcraft, WoW Short Sword - https://www.cursors-4u.com/cursor/world-of-warcraft-wow-short-sword */
+* {
+  cursor: url('https://cdn.cursors-4u.net/previews/world-of-warcraft-wow-short-sword-ce5dfcd6-32.webp') 32 32, auto !important;
+}
+/* End www.Cursors-4U.com Code */
