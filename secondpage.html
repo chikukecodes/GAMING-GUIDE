@@ -164,6 +164,31 @@ footer {
 .game-card:hover img {
   transform: scale(1.08);
 }
+.search-box {
+  max-width: 420px;
+  margin: 0 auto 45px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #1f2a33;
+  background: #0f151c;
+  color: #fff;
+  outline: none;
+  transition: border .3s ease, box-shadow .3s ease;
+}
+
+.search-box input::placeholder {
+  color: #8f9aa3;
+}
+
+.search-box input:focus {
+  border-color: #2ef2c8;
+  box-shadow: 0 0 12px rgba(46,242,200,0.35);
+}
 </style>
 </head>
 
@@ -174,6 +199,14 @@ footer {
 </header>
 
 <section class="games">
+  <div class="search-box">
+  <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="Search games..."
+    onkeyup="filterGames()"
+  >
+</div>
 <h2>Top Games</h2>
 
 <div class="grid">
