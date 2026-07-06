@@ -1,185 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChikuiZone | Game Showcase</title> 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      font-family: "Libre Baskerville", serif;
-      background-image: linear-gradient(to bottom, #372955, #0d0216);
-      color: #fff;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChikuiZone | Game Showcase</title>
 
-    header {
-      background: #1a1a1a;
-      padding: 20px;
-      text-align: center;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
-    header h1 {
-      margin: 0;
-      color: #24e367;
-      font-size: 2em;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Libre Baskerville", serif;
+}
 
-    .games {
-      padding: 40px;
-      text-align: center;
-    }
+body {
+  background: linear-gradient(180deg, #0a0e13, #05070a);
+  color: #fff;
+  min-height: 100vh;
+}
 
-    .games h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #e6f6f2;
-    }
+header {
+  background: rgba(10,15,20,0.95);
+  padding: 22px;
+  text-align: center;
+  border-bottom: 1px solid #1f2a33;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* Always 3 per row */
-      gap: 25px;
-    }
+header h1 {
+  color: #2ef2c8;
+  letter-spacing: 2px;
+  font-size: 2.3rem;
+}
 
-    .game-card {
-      background: #230925;
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.6s;
-    }
+.games {
+  padding: 60px;
+  text-align: center;
+}
 
-    .game-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(159, 176, 105, 0.4);
-    }
+.games h2 {
+  font-size: 2.2rem;
+  margin-bottom: 45px;
+}
 
-    .game-card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-  
-    }
+/* ALWAYS 3 PER ROW */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
 
-    .game-card h3 {
-      margin: 15px 0 5px;
-      color: #fff;
-    }
+/* CARD */
+.game-card {
+  position: relative;
+  background: #0f151c;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #1f2a33;
+  box-shadow: 0 12px 30px rgba(0,0,0,.6);
+  --x: 50%;
+  --y: 50%;
+}
 
-    .game-card p {
-      font-size: 14px;
-      color: #aaa;
-      padding: 0 15px 15px;
-    }
+/* SPOTLIGHT */
+.game-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--x) var(--y),
+    rgba(46,242,200,0.28),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity .25s ease;
+  z-index: 1;
+}
 
-    footer {
-      background: #1a1a1a;
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9em;
-      color: #aaa;
-      position: relative;
-      bottom: 0;
-      width: 100vw;
-      left: 0;
-    }
-  </style>
+.game-card:hover::before {
+  opacity: 1;
+}
+
+.game-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.game-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* CONTENT */
+.content {
+  padding: 18px 20px 22px;
+}
+
+.content h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  transition: color .3s ease;
+}
+
+.content p {
+  font-size: .9rem;
+  color: #9aa4ad;
+  line-height: 1.5;
+}
+
+.game-card:hover h3 {
+  color: #2ef2c8;
+}
+
+.notice {
+  text-align: center;
+  color: #9aa4ad;
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+footer {
+  background: #080c11;
+  text-align: center;
+  padding: 18px;
+  font-size: .9rem;
+  color: #8f9aa3;
+  border-top: 1px solid #1f2a33;
+}
+
+/* RESPONSIVE (still 3 per row) */
+@media (max-width: 768px) {
+  .games { padding: 40px 20px; }
+  .game-card img { height: 150px; }
+}
+.game-card {
+  position: relative;
+  background: #0f151c;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #1f2a33;
+  box-shadow: 0 12px 30px rgba(0,0,0,.6);
+  --x: 50%;
+  --y: 50%;
+
+  transition: transform 0.35s ease; /* ADD THIS */
+}
+.game-card:hover {
+  transform: scale(1.05);
+}
+.game-card img {
+  transition: transform 0.35s ease;
+}
+
+.game-card:hover img {
+  transform: scale(1.08);
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <h1>Game Showcase</h1>
-  </header>
 
-  <section class="games">
-    <h2>Top Games</h2>
-    <div class="grid"> 
-      
-      <div class="game-card">
-        <a href="revillage.html">
-          <img src=".assets/Wallpaper Resident evil village.jpg" alt="RE: Village"> 
-          <h3>Resident Evil: Village</h3>
-          <p>Survival horror game with intense combat and a dark atmosphere.</p>
-        </a>
+<header>
+  <h1>Game Showcase</h1>
+</header>
+
+<section class="games">
+<h2>Top Games</h2>
+
+<div class="grid">
+
+  <div class="game-card">
+    <a href="revillage.html">
+      <img src=".assets/Wallpaper Resident evil village.jpg">
+      <div class="content">
+        <h3>Resident Evil: Village</h3>
+        <p>Survival horror with intense atmosphere and combat.</p>
       </div>
+    </a>
+  </div>
 
-      <div class="game-card">
-        <a href="gowragnarok.html">
-          <img src=".assets/A nova era.jpg" alt="GOW Ragnarok"> 
-          <h3>God of War: Ragnarok</h3>
-          <p>Action-adventure game with Norse mythology and intense combat.</p>
-        </a>
+  <div class="game-card">
+    <a href="gowragnarok.html">
+      <img src=".assets/A nova era.jpg">
+      <div class="content">
+        <h3>God of War: Ragnarok</h3>
+        <p>Norse mythology meets brutal action combat.</p>
       </div>
+    </a>
+  </div>
 
-      <div class="game-card">
-        <a href="eldenring.html">
-          <img src=".assets/ELDEN RING.jpg" alt="Elden Ring"> 
-          <h3>Elden Ring</h3>
-          <p>Open-world souls-like RPG with dark fantasy themes and challenging combat.</p>
-        </a>
+  <div class="game-card">
+    <a href="eldenring.html">
+      <img src=".assets/ELDEN RING.jpg">
+      <div class="content">
+        <h3>Elden Ring</h3>
+        <p>Dark fantasy open-world souls experience.</p>
       </div>
+    </a>
+  </div>
 
-      
-      <div class="game-card">
-        <a href="cyberpunk2077.html">
-          <img src=".assets/Cyberpunk 2077 V - Patch 1_5 - Kazuliski.jpg" alt="Cyberpunk 2077"> 
-          <h3>Cyberpunk 2077</h3>
-          <p>Futuristic open-world RPG set in Night City with immersive storytelling.</p>
-        </a>
+  <div class="game-card">
+    <a href="cyberpunk2077.html">
+      <img src=".assets/Cyberpunk 2077 V - Patch 1_5 - Kazuliski.jpg">
+      <div class="content">
+        <h3>Cyberpunk 2077</h3>
+        <p>Futuristic RPG set in Night City.</p>
       </div>
+    </a>
+  </div>
 
-      <div class="game-card">
-        <a href="witcher3.html">
-          <img src=".assets/witcher 3 logo.jpg" alt="The Witcher 3"> 
-          <h3>The Witcher 3: Wild Hunt</h3>
-          <p>Epic fantasy RPG with rich narrative, monster hunting, and vast exploration.</p>
-        </a>
+  <div class="game-card">
+    <a href="witcher3.html">
+      <img src=".assets/witcher 3 logo.jpg">
+      <div class="content">
+        <h3>The Witcher 3: Wild Hunt</h3>
+        <p>Epic fantasy RPG with rich storytelling.</p>
       </div>
+    </a>
+  </div>
 
-      <div class="game-card">
-        <a href="thelastofus2.html">
-          <img src=".assets/tlou 2 logo.jpg" alt="The Last of Us Part II"> 
-          <h3>The Last of Us Part II</h3>
-          <p>Emotional action-adventure game with survival elements and gripping story.</p>
-        </a>
+  <div class="game-card">
+    <a href="thelastofus2.html">
+      <img src=".assets/tlou 2 logo.jpg">
+      <div class="content">
+        <h3>The Last of Us Part II</h3>
+        <p>Emotional survival action-adventure experience.</p>
       </div>
+    </a>
+  </div>
 
-      
-      <div class="game-card">
-        <a href="halo.html">
-          <img src=".assets/halo infinite logo.jpg" alt="Halo Infinite"> 
-          <h3>Halo Infinite</h3>
-          <p>First-person shooter with sci-fi action and expansive multiplayer modes.</p>
-        </a>
+  <div class="game-card">
+    <a href="halo.html">
+      <img src=".assets/halo infinite logo.jpg">
+      <div class="content">
+        <h3>Halo Infinite</h3>
+        <p>Sci-fi FPS with epic campaigns and multiplayer.</p>
       </div>
+    </a>
+  </div>
 
-      <div class="game-card">
-        <a href="marvelspiderman.html">
-          <img src=".assets/marvels spiderman logo.jpg" alt="Spider-Man"> 
-          <h3>Marvel's Spider-Man</h3>
-          <p>Action-adventure game swinging through New York with thrilling combat.</p>
-        </a>
+  <div class="game-card">
+    <a href="marvelspiderman.html">
+      <img src=".assets/marvels spiderman logo.jpg">
+      <div class="content">
+        <h3>Marvel's Spider-Man</h3>
+        <p>High-speed web-slinging action in New York.</p>
       </div>
+    </a>
+  </div>
 
-      <div class="game-card">
-        <a href="horizonwest.html">
-          <img src=".assets/hfw logo.jpg" alt="Horizon Forbidden West"> 
-          <h3>Horizon Forbidden West</h3>
-          <p>Open-world adventure with robotic creatures and breathtaking landscapes.</p>
-        </a>
+  <div class="game-card">
+    <a href="horizonwest.html">
+      <img src=".assets/hfw logo.jpg">
+      <div class="content">
+        <h3>Horizon Forbidden West</h3>
+        <p>Robotic creatures in a vast open world.</p>
       </div>
-    </div>
-  </section>
+    </a>
+  </div>
 
-  <p style="text-align:center; font-size:1.1em; color:#aaa; padding:20px;">
-    This website is still under development and will be updated with more games and features in the future. Stay tuned for more exciting content!
-  </p>
+</div>
+</section>
 
-  <footer>
-    &copy; ChikuiZone | All Rights Reserved
-  </footer>
+<p class="notice">
+  This website is still under development. More games and features are coming soon.
+</p>
+
+<footer>
+  © ChikuiZone | All Rights Reserved
+</footer>
+
+<!-- SPOTLIGHT SCRIPT -->
+<script>
+document.querySelectorAll('.game-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+    card.style.setProperty('--y', `${e.clientY - rect.top}px`);
+  });
+});
+</script>
+
 </body>
 </html>
