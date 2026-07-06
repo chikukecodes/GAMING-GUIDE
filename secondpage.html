@@ -189,6 +189,32 @@ footer {
   border-color: #2ef2c8;
   box-shadow: 0 0 12px rgba(46,242,200,0.35);
 }
+
+.game-card {
+  transition:
+    transform 0.35s ease,
+    opacity 0.25s ease;
+}
+
+.game-card.dim {
+  opacity: 0.25;
+}
+.game-card {
+  transition:
+    transform 0.35s ease,
+    opacity 0.25s ease;
+}
+
+.game-card.hide {
+  opacity: 0;
+  transform: scale(0.85);
+  pointer-events: none;
+}
+
+.game-card.show {
+  opacity: 1;
+  transform: scale(1);
+}
 </style>
 </head>
 
@@ -322,15 +348,37 @@ document.querySelectorAll('.game-card').forEach(card => {
   });
 });
 
+
 function filterGames() {
-  const input = document.getElementById('searchInput').value.toLowerCase();
-  const cards = document.querySelectorAll('.game-card');
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const grid = document.querySelector(".grid");
+  const cards = Array.from(document.querySelectorAll(".game-card"));
+
+  const matched = [];
+  const unmatched = [];
 
   cards.forEach(card => {
     const text = card.innerText.toLowerCase();
-    card.style.display = text.includes(input) ? "block" : "none";
+    card.classList.remove("dim");
+
+    if (text.includes(input)) {
+      matched.push(card);
+    } else {
+      unmatched.push(card);
+      card.classList.add("dim");
+    }
   });
+
+  
+  grid.innerHTML = "";
+
+  
+  matched.forEach(card => grid.appendChild(card));
+
+  
+  unmatched.forEach(card => grid.appendChild(card));
 }
+
 
 </script>
 
