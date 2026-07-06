@@ -312,7 +312,7 @@ footer {
   © ChikuiZone | All Rights Reserved
 </footer>
 
-<!-- SPOTLIGHT SCRIPT -->
+
 <script>
 document.querySelectorAll('.game-card').forEach(card => {
   card.addEventListener('mousemove', e => {
@@ -321,6 +321,17 @@ document.querySelectorAll('.game-card').forEach(card => {
     card.style.setProperty('--y', `${e.clientY - rect.top}px`);
   });
 });
+
+function filterGames() {
+  const input = document.getElementById('searchInput').value.toLowerCase();
+  const cards = document.querySelectorAll('.game-card');
+
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    card.style.display = text.includes(input) ? "block" : "none";
+  });
+}
+
 </script>
 
 </body>
